@@ -23,7 +23,7 @@ import ControlTray from "./components/control-tray/ControlTray";
 import cn from "classnames";
 
 const API_KEY = process.env.REACT_APP_GEMINI_API_KEY as string;
-if (typeof API_KEY !== "string") {
+if (!API_KEY) {
   throw new Error("set REACT_APP_GEMINI_API_KEY in .env");
 }
 
@@ -38,35 +38,35 @@ function App() {
   const [videoStream, setVideoStream] = useState<MediaStream | null>(null);
 
   return (
-    <div className="App">
-      <LiveAPIProvider url={uri} apiKey={API_KEY}>
-        <div className="streaming-console">
-          <SidePanel />
-          <main>
-            <div className="main-app-area">
-              {/* APP goes here */}
-              <Altair />
-              <video
-                className={cn("stream", {
-                  hidden: !videoRef.current || !videoStream,
-                })}
-                ref={videoRef}
-                autoPlay
-                playsInline
-              />
-            </div>
-
-            <ControlTray
-              videoRef={videoRef}
-              supportsVideo={true}
-              onVideoStreamChange={setVideoStream}
-            >
-              {/* put your own buttons here */}
-            </ControlTray>
-          </main>
-        </div>
-      </LiveAPIProvider>
-    </div>
+    <>
+      <div className="App">
+        <LiveAPIProvider url={uri} apiKey={API_KEY}>
+          <div className="streaming-console">
+            <SidePanel />
+            <main>
+              <div className="main-app-area">
+                <Altair />
+                <video
+                  className={cn("stream", {
+                    hidden: !videoRef.current || !videoStream,
+                  })}
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                />
+              </div>
+              <ControlTray
+                videoRef={videoRef}
+                supportsVideo={true}
+                onVideoStreamChange={setVideoStream}
+              >
+                {/* put your own buttons here */}
+              </ControlTray>
+            </main>
+          </div>
+        </LiveAPIProvider>
+      </div>
+    </>
   );
 }
 

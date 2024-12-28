@@ -2,8 +2,12 @@
   "name": "multimodal-live-api-web-console",
   "version": "0.1.0",
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.10",
+    "@types/chrome": "^0.0.287",
     "classnames": "^2.5.1",
     "dotenv-flow": "^4.1.0",
+    "electron": "^33.2.1",
+    "electron-store": "^10.0.0",
     "eventemitter3": "^5.0.1",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
@@ -17,6 +21,7 @@
     "vega-embed": "^6.29.0",
     "vega-lite": "^5.22.0",
     "web-vitals": "^2.1.4",
+    "webext-redux": "^4.0.0",
     "zustand": "^5.0.1"
   },
   "scripts": {
@@ -55,6 +60,9 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
